@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="MvxRatingView">
+    <attr name="deselectedRatingResource" format="string" />
+    <attr name="selectedRatingResource" format="string" />
+    <attr name="readonlyDeselectedRatingResource" format="string" />
+    <attr name="readonlySelectedRatingResource" format="string" />
+    <attr name="maxRatings" format="integer" />
+  </declare-styleable>
+</resources>
