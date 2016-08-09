@@ -34,6 +34,14 @@ namespace MvvmCross.Plugins.Ratings.Droid
             Initialize(context, attrs);
         }
 
+        private void Initialize(Context context, IAttributeSet attrs)
+        {
+            Views = new List<View>();
+
+            InitializeAttributes(context, attrs);
+            SetupView();
+        }
+
         public abstract View GetRatingViewItem(int rating, bool isSelected);
 
         public abstract void UpdateView(View view, int rating, bool isSelected);
@@ -58,14 +66,6 @@ namespace MvvmCross.Plugins.Ratings.Droid
 
                 UpdateView(mvxRatingViewItem, rating, isSelected);
             }
-        }
-
-        private void Initialize(Context context, IAttributeSet attrs)
-        {
-            Views = new List<View>();
-
-            InitializeAttributes(context, attrs);
-            SetupView();
         }
 
         private void SetupView()

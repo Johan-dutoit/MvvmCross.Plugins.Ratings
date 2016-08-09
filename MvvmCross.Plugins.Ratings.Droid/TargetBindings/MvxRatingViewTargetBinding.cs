@@ -18,6 +18,7 @@ namespace MvvmCross.Plugins.Ratings.Droid.TargetBindings
         public override void SetValue(object value)
         {
             RatingView.SelectedRating = (int)value;
+            RatingView.RefreshViews();
         }
 
         public override void SubscribeToEvents()
