@@ -9,11 +9,49 @@ namespace MvvmCross.Plugins.Ratings.Droid
 {
     public abstract class MvxRatingView : LinearLayout, View.IOnClickListener
     {
-        public event EventHandler SelectedRatingChanged;
-        public int SelectedRating { get; set; }
-
         private int _maxRating;
         private bool _readonly;
+        private int _selectedRating;
+
+        public event EventHandler SelectedRatingChanged;
+        public event EventHandler ReadOnlyChanged;
+
+        public int SelectedRating
+        {
+            get { return _selectedRating; }
+            set
+            {
+                if (_selectedRating.Equals(value))
+                {
+                    return;
+                }
+
+                _selectedRating = value;
+                RefreshViews();
+            }
+        }
+     
+        public bool ReadOnly
+        {
+            get { return _readonly; }
+            set
+            {
+                if (_readonly.Equals(value))
+                {
+                    return;
+                }
+
+                _readonly = value;
+                if (_readonly)
+                {
+                    AddOnClickListeners();
+                }
+                else
+                {
+                    RemoveOnClickListeners();
+                }
+            }
+        }
 
         private List<View> Views { get; set; }
 
@@ -67,6 +105,22 @@ namespace MvvmCross.Plugins.Ratings.Droid
 
                 UpdateView(mvxRatingViewItem, rating, isSelected);
             }
+        }
+
+        private void RemoveOnClickListeners()
+        {
+            Views?.ForEach(v =>
+            {
+                v.SetOnClickListener(null);
+            });
+        }
+
+        public void AddOnClickListeners()
+        {
+            Views?.ForEach(v =>
+            {
+                v.SetOnClickListener(this);
+            });
         }
 
         private void SetupView()

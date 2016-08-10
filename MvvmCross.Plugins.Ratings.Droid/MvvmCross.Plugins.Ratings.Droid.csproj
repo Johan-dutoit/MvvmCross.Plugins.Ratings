@@ -77,9 +77,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MvxRatingView.cs" />
+    <Compile Include="Plugin.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TargetBindings\MvxRatingViewTargetBinding.cs" />
+    <Compile Include="TargetBindings\MvxRatingViewReadOnlyTargetBinding.cs" />
+    <Compile Include="TargetBindings\MvxRatingViewSelectedRatingTargetBinding.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

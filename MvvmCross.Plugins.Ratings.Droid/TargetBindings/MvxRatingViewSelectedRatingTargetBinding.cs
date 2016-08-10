@@ -4,13 +4,13 @@ using MvvmCross.Binding.Bindings.Target;
 
 namespace MvvmCross.Plugins.Ratings.Droid.TargetBindings
 {
-    public class MvxRatingViewTargetBinding : MvxTargetBinding
+    public class MvxRatingViewSelectedRatingTargetBinding : MvxTargetBinding
     {
         protected MvxRatingView RatingView => Target as MvxRatingView;
         public override Type TargetType => typeof(int);
         public override MvxBindingMode DefaultMode => MvxBindingMode.TwoWay;
 
-        public MvxRatingViewTargetBinding(MvxRatingView target) 
+        public MvxRatingViewSelectedRatingTargetBinding(MvxRatingView target) 
             : base(target)
         {
         }
@@ -28,13 +28,10 @@ namespace MvvmCross.Plugins.Ratings.Droid.TargetBindings
 
         private void RatingViewSelectedRatingChanged(object sender, EventArgs e)
         {
-            var target = Target as MvxRatingView;
-
-            if (target == null)
+            if (RatingView == null)
                 return;
 
-            FireValueChanged(target.SelectedRating);
-            target.RefreshViews();
+            FireValueChanged(RatingView.SelectedRating);
         }
 
         protected override void Dispose(bool isDisposing)
