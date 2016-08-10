@@ -27,6 +27,9 @@ namespace MvvmCross.Plugins.Ratings.Droid
 		public partial class Attribute
 		{
 			
+			// aapt resource value: 0x7f010007
+			public static int MaxRating = 2130771975;
+			
 			// aapt resource value: 0x7f010000
 			public static int MvxBind = 2130771968;
 			
@@ -48,20 +51,8 @@ namespace MvvmCross.Plugins.Ratings.Droid
 			// aapt resource value: 0x7f010002
 			public static int MvxTemplate = 2130771970;
 			
-			// aapt resource value: 0x7f010007
-			public static int deselectedRatingResource = 2130771975;
-			
-			// aapt resource value: 0x7f01000b
-			public static int maxRatings = 2130771979;
-			
-			// aapt resource value: 0x7f010009
-			public static int readonlyDeselectedRatingResource = 2130771977;
-			
-			// aapt resource value: 0x7f01000a
-			public static int readonlySelectedRatingResource = 2130771978;
-			
 			// aapt resource value: 0x7f010008
-			public static int selectedRatingResource = 2130771976;
+			public static int ReadOnly = 2130771976;
 			
 			static Attribute()
 			{
@@ -154,25 +145,13 @@ namespace MvvmCross.Plugins.Ratings.Droid
 			
 			public static int[] MvxRatingView = new int[] {
 					2130771975,
-					2130771976,
-					2130771977,
-					2130771978,
-					2130771979};
+					2130771976};
 			
 			// aapt resource value: 0
-			public static int MvxRatingView_deselectedRatingResource = 0;
-			
-			// aapt resource value: 4
-			public static int MvxRatingView_maxRatings = 4;
-			
-			// aapt resource value: 2
-			public static int MvxRatingView_readonlyDeselectedRatingResource = 2;
-			
-			// aapt resource value: 3
-			public static int MvxRatingView_readonlySelectedRatingResource = 3;
+			public static int MvxRatingView_MaxRating = 0;
 			
 			// aapt resource value: 1
-			public static int MvxRatingView_selectedRatingResource = 1;
+			public static int MvxRatingView_ReadOnly = 1;
 			
 			static Styleable()
 			{

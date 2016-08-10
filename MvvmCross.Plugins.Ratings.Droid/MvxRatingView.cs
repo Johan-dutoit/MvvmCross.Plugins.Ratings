@@ -13,6 +13,7 @@ namespace MvvmCross.Plugins.Ratings.Droid
         public int SelectedRating { get; set; }
 
         private int _maxRating;
+        private bool _readonly;
 
         private List<View> Views { get; set; }
 
@@ -83,9 +84,11 @@ namespace MvvmCross.Plugins.Ratings.Droid
 
         private void SetupRatingViewItem(View ratingViewItem)
         {
-            ratingViewItem.Clickable = true;
-            ratingViewItem.SetOnClickListener(this);
-
+            if (!_readonly)
+            {
+                ratingViewItem.Clickable = true;
+                ratingViewItem.SetOnClickListener(this);
+            }
 
             Views.Add(ratingViewItem);
             AddView(ratingViewItem);
@@ -96,7 +99,8 @@ namespace MvvmCross.Plugins.Ratings.Droid
             try
             {
                 var typedArray = context.ObtainStyledAttributes(attrs, Resource.Styleable.MvxRatingView);
-                _maxRating = typedArray.GetInt(Resource.Styleable.MvxRatingView_maxRatings, 5);
+                _maxRating = typedArray.GetInt(Resource.Styleable.MvxRatingView_MaxRating, 5);
+                _readonly = typedArray.GetBoolean(Resource.Styleable.MvxRatingView_ReadOnly, false);
                 typedArray.Recycle();
             }
             catch (Exception ex)
