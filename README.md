@@ -9,9 +9,3 @@
 |Platform|Supported|Version|
 | ------------------- | :-----------: | :------------------: |
 |Xamarin.Android|Yes|API 10+|
-
-**Target Bindings**
-
-Setup.cs
-
-            registry.RegisterCustomBindingFactory<MvxRatingView>("SelectedRating", ratingView => new MvxRatingViewTargetBinding(ratingView));
