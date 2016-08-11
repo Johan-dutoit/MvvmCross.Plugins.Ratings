@@ -4,6 +4,11 @@ namespace RatingsSamples.ViewModels
 {
     public class RatingViewModel : MvxViewModel
     {
+        public RatingViewModel()
+        {
+            Rating = 3;
+        }
+
         private int rating;
         private bool isReadOnly;
 

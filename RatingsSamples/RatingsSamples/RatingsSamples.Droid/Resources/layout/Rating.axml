@@ -7,8 +7,8 @@
     android:gravity="center">
     <ratingssamples.droid.controls.MyRatingView
         android:id="@+id/myButton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
         app:MvxBind="SelectedRating Rating; ReadOnly ReadOnly" />
 </LinearLayout>
