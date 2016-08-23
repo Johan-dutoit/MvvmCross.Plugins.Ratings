@@ -95,7 +95,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MvvmCross.Plugins.Ratings\MvvmCross.Plugins.Ratings.csproj">
+      <Project>{eb36c661-9e28-4b3e-886e-0c1a7993e260}</Project>
+      <Name>MvvmCross.Plugins.Ratings</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

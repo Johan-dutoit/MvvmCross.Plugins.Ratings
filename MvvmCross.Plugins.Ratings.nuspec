@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>MvvmCross.Plugins.Ratings</id>
-    <version>0.1.6</version>
+    <version>0.1.9</version>
     <title></title>
     <authors>Johan du Toit</authors>
     <owners>Johan du Toit</owners>
@@ -11,10 +11,21 @@
     <projectUrl>https://github.com/Johan-dutoit/MvvmCross.Plugins.Ratings</projectUrl>
     <tags>mvvm mvvmcross xamarin monotouch mvx rating ratings ratingview</tags>
     <dependencies>
+		<!-- PCL -->
 		<group targetFramework="portable-net45+netcore45+wpa81">
 			<dependency id="MvvmCross.Platform" version="4.2.2" />
 		</group>
+
+		<!-- Droid -->
 		<group targetFramework="MonoAndroid">
+			<dependency id="MvvmCross" version="4.2.2" />
+			<dependency id="MvvmCross.Binding" version="4.2.2" />
+			<dependency id="MvvmCross.Core" version="4.2.2" />
+			<dependency id="MvvmCross.Platform" version="4.2.2" />
+		</group>
+		
+		<!-- iOS -->
+		<group targetFramework="Xamarin.iOS10">
 			<dependency id="MvvmCross" version="4.2.2" />
 			<dependency id="MvvmCross.Binding" version="4.2.2" />
 			<dependency id="MvvmCross.Core" version="4.2.2" />
@@ -31,6 +42,11 @@
     <file src="MvvmCross.Plugins.Ratings.Droid\bin\Release\MvvmCross.Plugins.Ratings.Droid.pdb" target="lib\MonoAndroid" />
 	<file src="MvvmCross.Plugins.Ratings\bin\Release\MvvmCross.Plugins.Ratings.dll" target="lib\MonoAndroid" />
 	<file src="BootstrapContent\RatingsPluginBootstrap.cs.pp" target="content\MonoAndroid\Bootstrap\RatingsPluginBootstrap.cs.pp" />
-
+	
+	<!-- iOS -->
+    <file src="MvvmCross.Plugins.Ratings.iOS\bin\Release\MvvmCross.Plugins.Ratings.iOS.dll" target="lib\Xamarin.iOS10" />
+    <file src="MvvmCross.Plugins.Ratings.iOS\bin\Release\MvvmCross.Plugins.Ratings.iOS.pdb" target="lib\Xamarin.iOS10" />
+	<file src="MvvmCross.Plugins.Ratings\bin\Release\MvvmCross.Plugins.Ratings.dll" target="lib\Xamarin.iOS10" />
+	<file src="BootstrapContent\RatingsPluginTouchBootstrap.cs.pp" target="content\Xamarin.iOS10\Bootstrap\RatingsPluginBootstrap.cs.pp" />
   </files>
 </package>

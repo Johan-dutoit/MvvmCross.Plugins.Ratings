@@ -7,7 +7,7 @@ using Android.Widget;
 
 namespace MvvmCross.Plugins.Ratings.Droid
 {
-    public abstract class MvxRatingView : LinearLayout, View.IOnClickListener
+    public abstract class MvxRatingView : LinearLayout, IMvxRatingView<View>, View.IOnClickListener
     {
         private int _maxRating;
         private bool _readonly;
@@ -15,6 +15,7 @@ namespace MvvmCross.Plugins.Ratings.Droid
 
         public event EventHandler SelectedRatingChanged;
         public event EventHandler ReadOnlyChanged;
+        public List<View> Views { get; set; }
 
         public int SelectedRating
         {
@@ -53,8 +54,6 @@ namespace MvvmCross.Plugins.Ratings.Droid
             }
         }
 
-        private List<View> Views { get; set; }
-
         protected MvxRatingView(Context context, IAttributeSet attrs)
             : base(context, attrs)
         {
@@ -90,7 +89,7 @@ namespace MvvmCross.Plugins.Ratings.Droid
             return _maxRating;
         }
 
-        public virtual void OnClick(View v)
+        public void OnClick(View v)
         {
             SelectedRating = (int)v.Tag;
             SelectedRatingChanged?.Invoke(this, EventArgs.Empty);
@@ -107,11 +106,16 @@ namespace MvvmCross.Plugins.Ratings.Droid
             }
         }
 
-        private void RemoveOnClickListeners()
+        public void RemoveOnClickListeners(bool disposing = false)
         {
             Views?.ForEach(v =>
             {
                 v.SetOnClickListener(null);
+
+                if(!disposing)
+                    return;
+
+                v.Dispose();
             });
         }
 
@@ -169,11 +173,8 @@ namespace MvvmCross.Plugins.Ratings.Droid
 
             if (!disposing) return;
 
-            Views?.ForEach(v =>
-            {
-                v.SetOnClickListener(null);
-                v.Dispose();
-            });
+            RemoveOnClickListeners(true);
+
             Views?.Clear();
             Views = null;
         }

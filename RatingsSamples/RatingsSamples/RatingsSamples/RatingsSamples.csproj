@@ -54,7 +54,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="MvvmCross.Plugins.Ratings, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MvvmCross.Plugins.Ratings.0.1.6\lib\portable-net45+netcore45+wpa81\MvvmCross.Plugins.Ratings.dll</HintPath>
+      <HintPath>..\..\packages\MvvmCross.Plugins.Ratings.0.1.9\lib\portable-net45+netcore45+wpa81\MvvmCross.Plugins.Ratings.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
