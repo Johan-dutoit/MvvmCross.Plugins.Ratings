@@ -9,3 +9,4 @@
 |Platform|Supported|Version|
 | ------------------- | :-----------: | :------------------: |
 |Xamarin.Android|Yes|API 10+|
+|Xamarin.iOS|Nearly| - |
